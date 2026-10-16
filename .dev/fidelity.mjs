@@ -22,7 +22,7 @@ const PAGES = {
 		'menu link': [ '.classynav > ul > li:nth-child(3) > a', '.south-nav li:nth-child(2) .wp-block-navigation-item__content' ],
 		hero: [ '.hero-area', '.south-hero' ],
 		'hero title band': [ '.hero-slides-content h1', '.south-hero .is-active .south-band, .south-hero .south-band' ],
-		'search tab': [ '.search-title', '.south-search__title' ],
+		'search tab': [ '.search-title p', '.south-search__title' ],
 		'search box': [ '.advanced-search-form', '.south-search__box' ],
 		'search field': [ '#search-q', '#south-search-q' ],
 		'search button': [ '.advanced-search-form .south-btn', '.south-search__submit' ],
@@ -86,7 +86,7 @@ const PAGES = {
 		paragraph: [ '.single-blog-area .post-content > p', '.south-post__content > p' ],
 		'comments title': [ '.comments-title', '.wp-block-comments-title' ],
 		'reply field': [ '#comment-name', '#author' ],
-		'reply button': [ '.comment-form .btn', '.wp-block-post-comments-form .submit' ],
+		'reply button': [ '.comment-form .btn', '.wp-block-post-comments-form #submit' ],
 	} ],
 	about: [ '/about-us.html', '/about/', {
 		'about title': [ '.about-content-wrapper .section-heading h2', '.south-about .south-section-title' ],

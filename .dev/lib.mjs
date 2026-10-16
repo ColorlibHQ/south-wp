@@ -77,6 +77,24 @@ export async function visit( page, url, { allow404 = false } = {} ) {
 	if ( status >= 400 && ! ( allow404 && 404 === status ) ) {
 		throw new Error( `${ url } answered ${ status }` );
 	}
-	await page.waitForTimeout( 1200 );
+	// Load every lazy image before anything is measured: an image arriving
+	// mid-check moves the layout between measuring a box and photographing
+	// what is behind it, and the sample lands on the wrong pixels.
+	await page.evaluate( async () => {
+		document.querySelectorAll( 'img[loading="lazy"]' ).forEach( ( img ) => ( img.loading = 'eager' ) );
+		for ( let y = 0; y < document.body.scrollHeight; y += 500 ) {
+			window.scrollTo( 0, y );
+			await new Promise( ( r ) => setTimeout( r, 120 ) );
+		}
+		await Promise.race( [
+			Promise.allSettled( [ ...document.images ].map( ( img ) => img.complete ? null : new Promise( ( r ) => {
+				img.addEventListener( 'load', r, { once: true } );
+				img.addEventListener( 'error', r, { once: true } );
+			} ) ) ),
+			new Promise( ( r ) => setTimeout( r, 30000 ) ),
+		] );
+		window.scrollTo( 0, 0 );
+	} );
+	await page.waitForTimeout( 800 );
 	return status;
 }

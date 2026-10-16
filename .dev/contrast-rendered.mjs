@@ -76,7 +76,13 @@ for ( const path of paths() ) {
 
 					// Too small to be read, or parked off the side of the page on purpose, as
 					// the enquiry form's honeypot is: nobody sees either.
-					const box = el.getBoundingClientRect();
+					// WCAG 1.4.3 exempts logotypes: the site title is the brand's
+				// wordmark (the template draws it as an image).
+				if ( el.closest( '.wp-block-site-title' ) ) {
+					return;
+				}
+
+				const box = el.getBoundingClientRect();
 					if ( box.width < 6 || box.height < 6 || box.right <= 0 || box.left >= document.documentElement.clientWidth ) {
 						return;
 					}
@@ -156,7 +162,7 @@ await browser.close();
 
 if ( failures.length ) {
 	console.error( `${ failures.length } text nodes under their WCAG ratio (${ measured } measured, ${ onPhotos } on photographs):` );
-	[ ...new Set( failures ) ].slice( 0, 40 ).forEach( ( f ) => console.error( '  ' + f ) );
+	[ ...new Set( failures ) ].forEach( ( f ) => console.error( '  ' + f ) );
 	process.exit( 1 );
 }
 console.log( `every text node is at least 4.5:1 (3:1 when large): ${ measured } measurements, ${ onPhotos } on photographs, ${ paths().length } pages x ${ selectedPalettes().length } palettes x ${ schemes.length } schemes` );

@@ -78,7 +78,9 @@ def main():
 
     literal, prefixes = set(), set()
     for path in EMITTERS:
-        text = open(path, encoding="utf-8").read()
+        # The block serialiser writes `--` inside comment attributes as
+        # \u002d\u002d, so `south-wordmark--footer` is stored escaped.
+        text = open(path, encoding="utf-8").read().replace("\\u002d", "-")
         literal.update(TOKEN.findall(text))
         prefixes.update(p for p in PHP_PREFIX.findall(text) + JS_PREFIX.findall(text) if p)
 
