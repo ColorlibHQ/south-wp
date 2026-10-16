@@ -510,6 +510,19 @@ ul.is-style-south-checks li::after,
 	padding: 70px 30px 30px;
 }
 
+/* The template's mobile menu is a left-aligned list, not the desktop row
+   pushed to the right edge. */
+.south-nav .wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation__responsive-container-content,
+.south-nav .wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation__container,
+.south-nav .wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation-item {
+	align-items: flex-start;
+	text-align: left;
+}
+
+.south-nav .wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation__submenu-container {
+	padding: 0 0 0 20px !important;
+}
+
 .wp-block-navigation.south-nav .wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation-item__content.wp-block-navigation-item__content {
 	padding: 10px 0;
 	font-size: 14px;
@@ -1123,7 +1136,7 @@ ul.is-style-south-checks li::after,
 
 @media (min-width: 992px) and (max-width: 1199px), (max-width: 767px) {
 	.south-section-title,
-	.south-member__name {
+	.south-member .south-member__name {
 		font-size: 24px;
 	}
 }
@@ -1434,6 +1447,9 @@ ul.is-style-south-checks li::after,
 .south-toolbar select {
 	width: auto;
 	min-width: 98px;
+	/* As wide as the chosen order, like the template's custom select, not
+	   as wide as the longest option. */
+	field-sizing: content;
 	height: 34px;
 	padding: 0 30px 0 18px;
 	background-position: right 10px center;
@@ -1997,7 +2013,7 @@ ul.is-style-south-checks li::after,
 }
 
 .south-footer__main {
-	padding: 0 15px;
+	padding: 0;
 }
 
 .south-footer__main > .south-footer__columns {
@@ -2015,6 +2031,12 @@ ul.is-style-south-checks li::after,
 
 .south-footer__columns > .wp-block-column {
 	margin-bottom: 100px;
+}
+
+@media (max-width: 781px) {
+	.wp-block-columns.south-footer__columns {
+		row-gap: 0;
+	}
 }
 
 .south-widget-title {
@@ -2067,17 +2089,15 @@ ul.is-style-south-checks li::after,
 	margin: 0;
 }
 
+/* The template's `a:first-child` matches every link, so none has top
+   padding: rows are 21px of text and 15px below. */
 .south-links a {
 	display: block;
-	padding: 15px 0;
+	padding: 0 0 15px;
 	color: var(--wp--preset--color--on-dark);
 	font-size: 14px;
 	font-weight: 400;
 	line-height: 1.5;
-}
-
-.south-links li:nth-child(-n+2) a {
-	padding-top: 0;
 }
 
 .south-links a:hover {
@@ -2171,11 +2191,7 @@ ul.is-style-south-checks li::after,
 }
 
 .south-post__body {
-	padding: 50px 0 0;
-}
-
-.south-post__body.is-single {
-	padding-bottom: 50px;
+	padding: 50px 0;
 }
 
 .south-post__date {
