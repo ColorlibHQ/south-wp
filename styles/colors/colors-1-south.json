@@ -1,0 +1,81 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/theme.json",
+	"version": 3,
+	"title": "South",
+	"settings": {
+		"color": {
+			"palette": [
+				{
+					"name": "Base",
+					"slug": "base",
+					"color": "#ffffff"
+				},
+				{
+					"name": "Surface",
+					"slug": "surface",
+					"color": "#f1f6f8"
+				},
+				{
+					"name": "Panel",
+					"slug": "panel",
+					"color": "#f5f5f5"
+				},
+				{
+					"name": "Contrast",
+					"slug": "contrast",
+					"color": "#323232"
+				},
+				{
+					"name": "Copy",
+					"slug": "copy",
+					"color": "#6b6b6b"
+				},
+				{
+					"name": "Muted",
+					"slug": "muted",
+					"color": "#707070"
+				},
+				{
+					"name": "Accent",
+					"slug": "accent",
+					"color": "#947054"
+				},
+				{
+					"name": "Primary",
+					"slug": "primary",
+					"color": "#86634a"
+				},
+				{
+					"name": "Primary text",
+					"slug": "primary-text",
+					"color": "#7a5a42"
+				},
+				{
+					"name": "Dark",
+					"slug": "dark",
+					"color": "#000000"
+				},
+				{
+					"name": "Divider",
+					"slug": "divider",
+					"color": "#e1dddd"
+				},
+				{
+					"name": "Overlay",
+					"slug": "overlay",
+					"color": "#ffffff"
+				},
+				{
+					"name": "On dark",
+					"slug": "on-dark",
+					"color": "#8c8c8c"
+				},
+				{
+					"name": "On primary",
+					"slug": "on-primary",
+					"color": "#ffffff"
+				}
+			]
+		}
+	}
+}

@@ -1,0 +1,81 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/theme.json",
+	"version": 3,
+	"title": "Olive",
+	"settings": {
+		"color": {
+			"palette": [
+				{
+					"name": "Base",
+					"slug": "base",
+					"color": "#ffffff"
+				},
+				{
+					"name": "Surface",
+					"slug": "surface",
+					"color": "#f3f5ec"
+				},
+				{
+					"name": "Panel",
+					"slug": "panel",
+					"color": "#f3f4ee"
+				},
+				{
+					"name": "Contrast",
+					"slug": "contrast",
+					"color": "#2a2c21"
+				},
+				{
+					"name": "Copy",
+					"slug": "copy",
+					"color": "#616356"
+				},
+				{
+					"name": "Muted",
+					"slug": "muted",
+					"color": "#66685c"
+				},
+				{
+					"name": "Accent",
+					"slug": "accent",
+					"color": "#8b914c"
+				},
+				{
+					"name": "Primary",
+					"slug": "primary",
+					"color": "#5a632d"
+				},
+				{
+					"name": "Primary text",
+					"slug": "primary-text",
+					"color": "#545c2a"
+				},
+				{
+					"name": "Dark",
+					"slug": "dark",
+					"color": "#14160e"
+				},
+				{
+					"name": "Divider",
+					"slug": "divider",
+					"color": "#dee1d1"
+				},
+				{
+					"name": "Overlay",
+					"slug": "overlay",
+					"color": "#ffffff"
+				},
+				{
+					"name": "On dark",
+					"slug": "on-dark",
+					"color": "#9fa291"
+				},
+				{
+					"name": "On primary",
+					"slug": "on-primary",
+					"color": "#ffffff"
+				}
+			]
+		}
+	}
+}
