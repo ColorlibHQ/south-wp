@@ -129,10 +129,13 @@ ul.wp-block-list.south-links,
 	color: var(--wp--preset--color--on-primary);
 }
 
+/* `contrast` on `base` rather than black on white: it reads as the
+   template's black button in light mode and turns over in dark mode, where a
+   black fill measured 1.08:1 against the page. */
 .wp-block-button.is-style-south-dark > .wp-block-button__link,
 .south-button--dark {
-	background-color: var(--wp--preset--color--dark);
-	color: var(--wp--preset--color--overlay);
+	background-color: var(--wp--preset--color--contrast);
+	color: var(--wp--preset--color--base);
 }
 
 .wp-block-button.is-style-south-dark > .wp-block-button__link:hover,
@@ -184,6 +187,14 @@ ul.is-style-south-checks li::after,
 	background-color: var(--wp--preset--color--on-primary);
 	-webkit-mask: url(assets/icons/check.svg) center / contain no-repeat;
 	mask: url(assets/icons/check.svg) center / contain no-repeat;
+}
+
+/* A button on a photograph keeps an edge where the picture is bright: the
+   brown fill alone measured 1.3 to 2.5:1 against the lit windows behind the
+   rentals call to action (WCAG 1.4.11, checked by .dev/button-boundary.mjs). */
+.wp-block-cover .wp-block-button__link {
+	border: 1px solid rgba(255, 255, 255, 0.75);
+	line-height: 48px;
 }
 
 /* A read-more link that looks like the template's "Read More" button. */
@@ -358,7 +369,7 @@ ul.is-style-south-checks li::after,
 
 /* A site with a logo shows the logo; without one, the name is set as the
    template's wordmark: the diamond-and-square mark and the name in caps. */
-.south-brand .wp-block-site-logo + .south-wordmark {
+.south-brand .wp-block-site-logo:has(img) + .south-wordmark {
 	display: none;
 }
 
@@ -402,13 +413,13 @@ ul.is-style-south-checks li::after,
 	gap: 0;
 }
 
-.south-nav a.wp-block-navigation-item__content {
+.wp-block-navigation.south-nav .wp-block-navigation-item__content.wp-block-navigation-item__content {
 	padding: 0 12px;
 	color: var(--wp--preset--color--overlay);
 	line-height: 34px;
 }
 
-.south-nav a.wp-block-navigation-item__content:hover {
+.wp-block-navigation.south-nav .wp-block-navigation-item__content.wp-block-navigation-item__content:hover {
 	color: var(--wp--preset--color--accent);
 }
 
@@ -424,7 +435,7 @@ ul.is-style-south-checks li::after,
 	background-color: var(--wp--preset--color--dark) !important;
 }
 
-.south-nav .wp-block-navigation__submenu-container a.wp-block-navigation-item__content {
+.wp-block-navigation.south-nav .wp-block-navigation__submenu-container .wp-block-navigation-item__content.wp-block-navigation-item__content {
 	padding: 4px 25px;
 	font-size: 13px;
 	text-transform: none;
@@ -499,7 +510,7 @@ ul.is-style-south-checks li::after,
 	padding: 70px 30px 30px;
 }
 
-.south-nav .wp-block-navigation__responsive-container.is-menu-open a.wp-block-navigation-item__content {
+.wp-block-navigation.south-nav .wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation-item__content.wp-block-navigation-item__content {
 	padding: 10px 0;
 	font-size: 14px;
 	line-height: 1.5;
@@ -525,6 +536,7 @@ ul.is-style-south-checks li::after,
 	.south-topbar__email {
 		width: 100%;
 		padding: 15px 30px;
+		line-height: 16px;
 	}
 
 	.south-topbar__phone {
@@ -561,33 +573,33 @@ ul.is-style-south-checks li::after,
 }
 
 @media (max-width: 1199px) {
-	.south-banner .south-band {
+	.wp-block-cover.south-banner .south-band {
 		font-size: 48px;
 	}
 }
 
 @media (max-width: 991px) {
-	.south-band {
+	.wp-block-cover .south-band {
 		font-size: 40px;
 	}
 
-	.south-banner .south-band {
+	.wp-block-cover.south-banner .south-band {
 		font-size: 36px;
 	}
 }
 
 @media (max-width: 767px) {
-	.south-band {
+	.wp-block-cover .south-band {
 		font-size: 16px;
 	}
 
-	.south-banner .south-band {
+	.wp-block-cover.south-banner .south-band {
 		font-size: 30px;
 	}
 }
 
 @media (min-width: 480px) and (max-width: 767px) {
-	.south-hero .south-band {
+	.south-hero .wp-block-cover .south-band {
 		font-size: 24px;
 	}
 }
@@ -976,8 +988,8 @@ ul.is-style-south-checks li::after,
 	--high: 100%;
 	position: relative;
 	height: 4px;
-	margin: 0 22px;
-	background: linear-gradient(to right, var(--wp--preset--color--divider) var(--low), var(--wp--preset--color--accent) var(--low), var(--wp--preset--color--accent) var(--high), var(--wp--preset--color--divider) var(--high));
+	/* As the template paints it: grey between the handles, brown outside. */
+	background: linear-gradient(to right, var(--wp--preset--color--accent) var(--low), var(--wp--preset--color--divider) var(--low), var(--wp--preset--color--divider) var(--high), var(--wp--preset--color--accent) var(--high));
 }
 
 .south-range__track input[type="range"] {
@@ -1110,7 +1122,15 @@ ul.is-style-south-checks li::after,
 }
 
 @media (min-width: 992px) and (max-width: 1199px), (max-width: 767px) {
-	.south-section-title {
+	.south-section-title,
+	.south-member__name {
+		font-size: 24px;
+	}
+}
+
+@media (max-width: 767px) {
+	h1.south-post__title,
+	.south-listing__title {
 		font-size: 24px;
 	}
 }
@@ -1188,6 +1208,8 @@ ul.is-style-south-checks li::after,
 	object-fit: cover;
 }
 
+/* Three classes: the editor gives every block `position: relative` with two. */
+.south-card .south-card__media > .south-card__tag,
 .south-card__tag {
 	position: absolute;
 	top: 20px;
@@ -1204,6 +1226,7 @@ ul.is-style-south-checks li::after,
 	transition: background-color 0.5s, color 0.5s;
 }
 
+.south-card .south-card__media > .south-card__price,
 .south-card__price {
 	position: absolute;
 	bottom: 20px;
@@ -1231,7 +1254,9 @@ ul.is-style-south-checks li::after,
 }
 
 .south-card__tag:empty,
-.south-card__price:empty {
+.south-card__price:empty,
+.south-card__tag[data-empty="true"],
+.south-fact[data-empty="true"] {
 	display: none;
 }
 
@@ -1263,7 +1288,7 @@ ul.is-style-south-checks li::after,
 }
 
 /* The whole card is the link, as the template's stretched-link makes it. */
-.south-card__title a::after {
+.south-card .south-card__title a::after {
 	content: "";
 	position: absolute;
 	inset: 0;
@@ -1410,6 +1435,9 @@ ul.is-style-south-checks li::after,
 	width: auto;
 	min-width: 98px;
 	height: 34px;
+	padding: 0 30px 0 18px;
+	background-position: right 10px center;
+	border-color: #e8e8e8;
 	line-height: 32px;
 	font-weight: 400;
 }
@@ -1861,8 +1889,8 @@ ul.is-style-south-checks li::after,
 	line-height: 1.5;
 }
 
-.south-office .south-lines,
-.south-footer .south-lines {
+.south-office > .south-lines,
+.south-footer__columns > .wp-block-column > .south-lines {
 	margin-top: 40px;
 }
 
@@ -2195,8 +2223,19 @@ h1.south-post__title {
 	color: var(--wp--preset--color--primary-text);
 }
 
+.south-post__meta > * {
+	flex: 0 0 auto;
+}
+
+.south-post__author {
+	display: inline-flex;
+	margin: 0;
+	white-space: nowrap;
+}
+
 .south-post__author .wp-block-post-author__content {
 	display: flex;
+	flex: 0 0 auto;
 	gap: 4px;
 }
 
@@ -2267,6 +2306,7 @@ h1.south-post__title {
 
 .south-sidebar-search .wp-block-search__input {
 	height: 43px;
+	font-weight: 400;
 	padding: 0 50px 0 30px;
 	border: 0;
 	background-color: transparent;
@@ -2558,8 +2598,8 @@ h1.south-post__title {
 
 .south-panels details[open] > summary,
 .south-panels summary.south-button--dark {
-	background-color: var(--wp--preset--color--dark);
-	color: var(--wp--preset--color--overlay);
+	background-color: var(--wp--preset--color--contrast);
+	color: var(--wp--preset--color--base);
 }
 
 .south-panel {
@@ -2646,7 +2686,8 @@ h1.south-post__title {
 	grid-column: 1 / -1;
 }
 
-.south-agent {
+.south-agent,
+.south-listing__columns .wp-block-column > .south-agent {
 	margin: 80px 0 0;
 	background-color: var(--wp--preset--color--panel);
 }
@@ -2735,4 +2776,15 @@ h1.south-post__title {
 
 .editor-styles-wrapper .south-navbar {
 	background-color: var(--wp--preset--color--dark);
+}
+
+/* Visitors who ask for less motion get none: no fades, no colour easing. */
+@media (prefers-reduced-motion: reduce) {
+	*,
+	*::before,
+	*::after {
+		transition-duration: 0s !important;
+		animation-duration: 0s !important;
+		scroll-behavior: auto !important;
+	}
 }

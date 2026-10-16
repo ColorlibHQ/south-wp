@@ -463,8 +463,8 @@ def build_about():
         section_head("Featured Properties", "New on the market this month", align="left"),
         property_query(per_page=4, extra_class="south-slider south-properties--single", query_id=21),
     ])
-    inner = columns([column(left, width="66.66%"),
-                     column(right, width="33.33%", extra_class="south-requires-listings")],
+    inner = columns([column(left, width="65.77%"),
+                     column(right, width="31.53%", extra_class="south-requires-listings")],
                     gap="40", extra_class="south-about")
     write("about", "About the agency",
           section(inner, extra_class="south-about-area"),
@@ -519,8 +519,8 @@ def build_contact():
     left = "\n".join([hours_rows(), office_lines()])
     inner = "\n".join([
         heading("Contact info", level=2, extra_class="south-underline-title"),
-        columns([column(group(left, layout="default", extra_class="south-office", anchor="office-hours"), width="33.33%"),
-                 column(shortcode("[south_enquiry_form]"), width="66.66%")],
+        columns([column(group(left, layout="default", extra_class="south-office", anchor="office-hours"), width="31.53%"),
+                 column(shortcode("[south_enquiry_form]"), width="65.77%")],
                 gap="40", extra_class="south-contact"),
     ])
     write("contact", "Contact: office hours and form",
@@ -683,8 +683,8 @@ def build_hidden():
                 bound("address", "Calle Serena 24, Malibu, CA", "south-listing__location"),
                 raw("post-content", {"className": "south-listing__content", "layout": {"type": "default"}}),
                 shortcode('[south_property part="details"]'),
-            ]), width="66.66%"),
-            column(shortcode('[south_property part="agent"]'), width="33.33%"),
+            ]), width="65.77%"),
+            column(shortcode('[south_property part="agent"]'), width="31.53%"),
         ], gap="40", extra_class="south-listing__columns"),
         shortcode('[south_property part="map"]'),
     ])
@@ -695,6 +695,7 @@ def build_hidden():
 
 # ---------------------------------------------------------------------------
 # Whole pages
+# (8/4 splits are 65.77% + 31.53% + a 30px gap: the template's 730 + 350 of 1110.)
 # ---------------------------------------------------------------------------
 def ref(slug):
     return '<!-- wp:pattern {"slug":"south/%s"} /-->' % slug
@@ -737,8 +738,8 @@ def with_sidebar(left):
         '<div class="wp-block-group alignfull south-section south-blog-area" style="padding-top:var(--wp--preset--spacing--70);padding-bottom:var(--wp--preset--spacing--70)">\n'
         '<!-- wp:columns {"className":"south-blog","style":{"spacing":{"blockGap":{"top":"var:preset|spacing|50","left":"var:preset|spacing|40"}}}} -->\n'
         '<div class="wp-block-columns south-blog">\n'
-        '<!-- wp:column {"width":"66.66%%"} -->\n<div class="wp-block-column" style="flex-basis:66.66%%">\n%s\n</div>\n<!-- /wp:column -->\n'
-        '<!-- wp:column {"width":"33.33%%"} -->\n<div class="wp-block-column" style="flex-basis:33.33%%">\n'
+        '<!-- wp:column {"width":"65.77%%"} -->\n<div class="wp-block-column" style="flex-basis:65.77%%">\n%s\n</div>\n<!-- /wp:column -->\n'
+        '<!-- wp:column {"width":"31.53%%"} -->\n<div class="wp-block-column" style="flex-basis:31.53%%">\n'
         '<!-- wp:template-part {"slug":"sidebar","area":"uncategorized","className":"south-sidebar-part"} /-->\n'
         '</div>\n<!-- /wp:column -->\n'
         '</div>\n<!-- /wp:columns -->\n'

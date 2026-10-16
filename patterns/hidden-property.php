@@ -17,8 +17,8 @@ defined( 'ABSPATH' ) || exit;
 <!-- /wp:shortcode -->
 
 <!-- wp:columns {"className":"south-listing__columns","style":{"spacing":{"blockGap":{"top":"var:preset|spacing|40","left":"var:preset|spacing|40"}}}} -->
-<div class="wp-block-columns south-listing__columns"><!-- wp:column {"width":"66.66%"} -->
-<div class="wp-block-column" style="flex-basis:66.66%"><!-- wp:paragraph {"metadata":{"bindings":{"content":{"source":"south/property","args":{"key":"price"}}}},"className":"south-listing__price"} -->
+<div class="wp-block-columns south-listing__columns"><!-- wp:column {"width":"65.77%"} -->
+<div class="wp-block-column" style="flex-basis:65.77%"><!-- wp:paragraph {"metadata":{"bindings":{"content":{"source":"south/property","args":{"key":"price"}}}},"className":"south-listing__price"} -->
 <p class="south-listing__price">$2 450 000</p>
 <!-- /wp:paragraph -->
 
@@ -35,8 +35,8 @@ defined( 'ABSPATH' ) || exit;
 <!-- /wp:shortcode --></div>
 <!-- /wp:column -->
 
-<!-- wp:column {"width":"33.33%"} -->
-<div class="wp-block-column" style="flex-basis:33.33%"><!-- wp:shortcode -->
+<!-- wp:column {"width":"31.53%"} -->
+<div class="wp-block-column" style="flex-basis:31.53%"><!-- wp:shortcode -->
 [south_property part="agent"]
 <!-- /wp:shortcode --></div>
 <!-- /wp:column --></div>

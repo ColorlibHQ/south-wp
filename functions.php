@@ -43,7 +43,7 @@ function south_setup() {
 	);
 
 	// The same rules in the editor canvas as on the site.
-	add_editor_style( array( 'style.css', 'assets/css/forms.css' ) );
+	add_editor_style( array( 'style.css', 'assets/css/scheme.css' ) );
 }
 add_action( 'after_setup_theme', 'south_setup' );
 
@@ -164,6 +164,7 @@ add_action( 'init', 'south_register_pattern_categories' );
 require get_template_directory() . '/inc/listings.php';
 require get_template_directory() . '/inc/front-page-setup.php';
 require get_template_directory() . '/inc/enquiry.php';
+require get_template_directory() . '/inc/journal.php';
 require get_template_directory() . '/inc/forms.php';
 require get_template_directory() . '/inc/scheme.php';
 require get_template_directory() . '/inc/updates.php';

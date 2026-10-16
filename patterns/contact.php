@@ -17,8 +17,8 @@ defined( 'ABSPATH' ) || exit;
 <!-- /wp:heading -->
 
 <!-- wp:columns {"className":"south-contact","style":{"spacing":{"blockGap":{"top":"var:preset|spacing|40","left":"var:preset|spacing|40"}}}} -->
-<div class="wp-block-columns south-contact"><!-- wp:column {"width":"33.33%"} -->
-<div class="wp-block-column" style="flex-basis:33.33%"><!-- wp:group {"className":"south-office","layout":{"type":"default"},"anchor":"office-hours"} -->
+<div class="wp-block-columns south-contact"><!-- wp:column {"width":"31.53%"} -->
+<div class="wp-block-column" style="flex-basis:31.53%"><!-- wp:group {"className":"south-office","layout":{"type":"default"},"anchor":"office-hours"} -->
 <div id="office-hours" class="wp-block-group south-office"><!-- wp:group {"className":"south-hours","layout":{"type":"default"}} -->
 <div class="wp-block-group south-hours"><!-- wp:group {"className":"south-hours__row","layout":{"type":"flex","flexWrap":"nowrap","justifyContent":"space-between"}} -->
 <div class="wp-block-group south-hours__row"><!-- wp:paragraph -->
@@ -67,8 +67,8 @@ defined( 'ABSPATH' ) || exit;
 <!-- /wp:group --></div>
 <!-- /wp:column -->
 
-<!-- wp:column {"width":"66.66%"} -->
-<div class="wp-block-column" style="flex-basis:66.66%"><!-- wp:shortcode -->
+<!-- wp:column {"width":"65.77%"} -->
+<div class="wp-block-column" style="flex-basis:65.77%"><!-- wp:shortcode -->
 [south_enquiry_form]
 <!-- /wp:shortcode --></div>
 <!-- /wp:column --></div>

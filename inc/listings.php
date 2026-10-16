@@ -108,20 +108,27 @@ function south_site_search_form() {
 }
 
 /**
- * Expand shortcodes in core/shortcode blocks wherever they render.
+ * Render core/shortcode blocks with their shortcodes expanded, everywhere.
  *
  * The block's own render callback only runs wpautop(); expansion normally
  * comes from do_shortcode on `the_content`, which never runs for a block
- * TEMPLATE. Without this the listings template prints its shortcodes as text.
- * do_shortcode on already-expanded HTML is a no-op, so it is safe everywhere.
+ * TEMPLATE, so without this the listings template prints its shortcodes as
+ * text. And wpautop() wraps the result in <p>, which nests the search box,
+ * the agent box and every form inside a paragraph: invalid HTML that the
+ * browser repairs into empty paragraphs with margins. So the block's raw
+ * inner HTML is expanded instead of its autop'd output.
  *
  * @param string $content Rendered block.
+ * @param array  $block   Parsed block.
  * @return string
  */
-function south_render_shortcode_block( $content ) {
+function south_render_shortcode_block( $content, $block = array() ) {
+	if ( isset( $block['innerHTML'] ) && '' !== trim( $block['innerHTML'] ) ) {
+		return do_shortcode( trim( $block['innerHTML'] ) );
+	}
 	return do_shortcode( $content );
 }
-add_filter( 'render_block_core/shortcode', 'south_render_shortcode_block' );
+add_filter( 'render_block_core/shortcode', 'south_render_shortcode_block', 10, 2 );
 
 /**
  * Drop listing sections when the plugin is not there, and their stand-ins

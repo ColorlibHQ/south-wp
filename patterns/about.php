@@ -13,8 +13,8 @@ defined( 'ABSPATH' ) || exit;
 ?>
 <!-- wp:group {"align":"full","className":"south-section south-about-area","style":{"spacing":{"padding":{"top":"var:preset|spacing|70","bottom":"var:preset|spacing|70"}}},"layout":{"type":"constrained"}} -->
 <div class="wp-block-group alignfull south-section south-about-area" style="padding-top:var(--wp--preset--spacing--70);padding-bottom:var(--wp--preset--spacing--70)"><!-- wp:columns {"className":"south-about","style":{"spacing":{"blockGap":{"top":"var:preset|spacing|40","left":"var:preset|spacing|40"}}}} -->
-<div class="wp-block-columns south-about"><!-- wp:column {"width":"66.66%"} -->
-<div class="wp-block-column" style="flex-basis:66.66%"><!-- wp:group {"className":"south-section-head","layout":{"type":"default"}} -->
+<div class="wp-block-columns south-about"><!-- wp:column {"width":"65.77%"} -->
+<div class="wp-block-column" style="flex-basis:65.77%"><!-- wp:group {"className":"south-section-head","layout":{"type":"default"}} -->
 <div class="wp-block-group south-section-head"><!-- wp:heading {"className":"south-section-title","style":{"typography":{"textAlign":"left"}}} -->
 <h2 class="wp-block-heading has-text-align-left south-section-title">We search for the perfect home</h2>
 <!-- /wp:heading -->
@@ -33,8 +33,8 @@ defined( 'ABSPATH' ) || exit;
 <!-- /wp:paragraph --></div>
 <!-- /wp:column -->
 
-<!-- wp:column {"width":"33.33%","className":"south-requires-listings"} -->
-<div class="wp-block-column south-requires-listings" style="flex-basis:33.33%"><!-- wp:group {"className":"south-section-head","layout":{"type":"default"}} -->
+<!-- wp:column {"width":"31.53%","className":"south-requires-listings"} -->
+<div class="wp-block-column south-requires-listings" style="flex-basis:31.53%"><!-- wp:group {"className":"south-section-head","layout":{"type":"default"}} -->
 <div class="wp-block-group south-section-head"><!-- wp:heading {"className":"south-section-title","style":{"typography":{"textAlign":"left"}}} -->
 <h2 class="wp-block-heading has-text-align-left south-section-title">Featured Properties</h2>
 <!-- /wp:heading -->
