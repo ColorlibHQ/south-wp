@@ -34,11 +34,19 @@ for ( const width of widths ) {
 			await page.goto( url, { waitUntil: 'load', timeout: 60000 } );
 			await page.evaluate( async () => {
 				document.querySelectorAll( 'img[loading="lazy"]' ).forEach( ( img ) => ( img.loading = 'eager' ) );
-				for ( let y = 0; y < document.body.scrollHeight; y += 600 ) {
+				for ( let y = 0; y < document.body.scrollHeight; y += 500 ) {
 					window.scrollTo( 0, y );
-					await new Promise( ( r ) => setTimeout( r, 40 ) );
+					await new Promise( ( r ) => setTimeout( r, 250 ) );
 				}
 				window.scrollTo( 0, 0 );
+				// Playground serves images slowly: wait until each has loaded.
+				await Promise.race( [
+					Promise.allSettled( [ ...document.images ].map( ( img ) => img.complete ? null : new Promise( ( r ) => {
+						img.addEventListener( 'load', r, { once: true } );
+						img.addEventListener( 'error', r, { once: true } );
+					} ) ) ),
+					new Promise( ( r ) => setTimeout( r, 20000 ) ),
+				] );
 				await Promise.allSettled( [ ...document.images ].map( ( img ) => img.decode().catch( () => {} ) ) );
 			} );
 			await page.waitForTimeout( 900 );

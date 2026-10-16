@@ -33,6 +33,7 @@ export async function measure( page, map ) {
 			const s = getComputedStyle( el );
 			out[ name ] = {
 				found: true,
+				own: [ ...el.childNodes ].some( ( n ) => 3 === n.nodeType && n.textContent.trim() ) || /^(INPUT|TEXTAREA|SELECT|BUTTON)$/.test( el.tagName ),
 				x: Math.round( r.left ),
 				y: Math.round( r.top + window.scrollY ),
 				w: Math.round( r.width ),

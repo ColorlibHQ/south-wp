@@ -8,4 +8,4 @@ blueprint="${2:-$here/.dev/blueprint.json}"
 exec npx -y @wp-playground/cli@3.1.54 server --port="$port" --php=8.3 --wp=latest \
 	--mount-before-install="$here:/wordpress/wp-content/themes/south" \
 	--mount-before-install="$here/plugin/south-listings:/wordpress/wp-content/plugins/south-listings" \
-	--blueprint="$blueprint" --login
+	--blueprint="$blueprint"
