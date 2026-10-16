@@ -1,0 +1,11 @@
+{
+  "$schema": "https://playground.wordpress.net/blueprint-schema.json",
+  "preferredVersions": { "php": "8.3", "wp": "latest" },
+  "steps": [
+    { "step": "setSiteOptions", "options": { "blogname": "South", "blogdescription": "Real estate agency", "permalink_structure": "/%postname%/" } },
+    { "step": "activateTheme", "themeFolderName": "south" },
+    { "step": "activatePlugin", "pluginPath": "south-listings/south-listings.php" },
+    { "step": "runPHP", "code": "<?php require '/wordpress/wp-load.php'; if ( function_exists( 'south_listings_import_demo' ) ) { south_listings_import_demo(); } flush_rewrite_rules(); echo 'ok';" },
+    { "step": "login", "username": "admin", "password": "password" }
+  ]
+}
