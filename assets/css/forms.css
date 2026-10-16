@@ -1,0 +1,223 @@
+/*
+ * Forms: South's enquiry form, the comment form, and the common form plugins
+ * pulled onto the same tokens so a plugin's form does not look like another
+ * website dropped into the page.
+ *
+ * The design's fields are square, 43px tall, with a 1px `divider` border, 15px
+ * of padding and a 12px italic placeholder. Everything is a palette variable,
+ * so forms follow all eight colour variations and dark mode.
+ */
+
+.south-field__control,
+.wp-block-post-comments-form input[type="text"],
+.wp-block-post-comments-form input[type="email"],
+.wp-block-post-comments-form input[type="url"],
+.wp-block-post-comments-form textarea,
+.wpcf7 input[type="text"],
+.wpcf7 input[type="email"],
+.wpcf7 input[type="tel"],
+.wpcf7 textarea,
+.wpcf7 select,
+.wpforms-field input[type="text"],
+.wpforms-field input[type="email"],
+.wpforms-field input[type="tel"],
+.wpforms-field textarea,
+.wpforms-field select,
+.gform_wrapper input[type="text"],
+.gform_wrapper input[type="email"],
+.gform_wrapper input[type="tel"],
+.gform_wrapper textarea,
+.gform_wrapper select,
+.fluentform input[type="text"],
+.fluentform input[type="email"],
+.fluentform textarea,
+.fluentform select,
+.forminator-input,
+.forminator-textarea,
+.nf-form-content input[type="text"],
+.nf-form-content input[type="email"],
+.nf-form-content textarea {
+	display: block;
+	width: 100%;
+	/* WordPress resets box-sizing for nothing form-shaped: without this a
+	   100%-wide field with padding and a border is wider than its cell
+	   (Pato's reservation form shipped 34px too wide at every width). */
+	box-sizing: border-box;
+	height: 43px;
+	margin: 0;
+	padding: 0 15px;
+	border: 1px solid var(--wp--preset--color--divider);
+	border-radius: 0;
+	background-color: transparent;
+	box-shadow: none;
+	color: var(--wp--preset--color--contrast);
+	font-family: inherit;
+	font-size: 12px;
+	font-weight: 500;
+	line-height: 1.5;
+	-webkit-appearance: none;
+	appearance: none;
+}
+
+textarea.south-field__control,
+.wp-block-post-comments-form textarea,
+.wpcf7 textarea,
+.wpforms-field textarea,
+.gform_wrapper textarea,
+.fluentform textarea,
+.forminator-textarea,
+.nf-form-content textarea {
+	height: 200px;
+	min-height: 0;
+	padding: 15px;
+	resize: vertical;
+}
+
+.south-field__control::placeholder,
+.wp-block-post-comments-form input::placeholder,
+.wp-block-post-comments-form textarea::placeholder {
+	color: var(--wp--preset--color--muted);
+	font-style: italic;
+	opacity: 1;
+}
+
+.south-field__control:focus,
+.wp-block-post-comments-form input:focus,
+.wp-block-post-comments-form textarea:focus,
+.wpcf7 input:focus,
+.wpcf7 textarea:focus,
+.wpforms-field input:focus,
+.wpforms-field textarea:focus,
+.gform_wrapper input:focus,
+.gform_wrapper textarea:focus,
+.fluentform input:focus,
+.fluentform textarea:focus {
+	border-color: var(--wp--preset--color--accent);
+	outline: 2px solid var(--wp--preset--color--primary);
+	outline-offset: 0;
+}
+
+/* The enquiry form. */
+.south-enquiry {
+	position: relative;
+	margin: 0;
+}
+
+.south-enquiry__anchor {
+	position: absolute;
+	top: -120px;
+}
+
+.south-enquiry__grid {
+	display: grid;
+	gap: 10px;
+}
+
+.south-enquiry .south-field {
+	margin: 0;
+}
+
+.south-enquiry__actions {
+	margin: 40px 0 0;
+}
+
+.south-enquiry__actions .wp-element-button {
+	min-width: 170px;
+	border: 0;
+	cursor: pointer;
+}
+
+.south-enquiry.is-sending .south-enquiry__submit {
+	opacity: 0.75;
+	cursor: progress;
+}
+
+/* Parked off-screen: no visitor sees it, assistive technology is told to
+   skip it (aria-hidden), and it is out of the tab order (tabindex -1). */
+.south-enquiry__trap {
+	position: absolute !important;
+	left: -10000px !important;
+	width: 1px;
+	height: 1px;
+	overflow: hidden;
+}
+
+.south-enquiry__notice {
+	margin: 0 0 20px;
+	padding: 15px 20px;
+	border-left: 4px solid var(--wp--preset--color--accent);
+	background-color: var(--wp--preset--color--panel);
+	color: var(--wp--preset--color--contrast);
+}
+
+.south-enquiry__notice.is-error {
+	border-left-color: var(--wp--preset--color--dark);
+}
+
+/* In the agent box the fields are 45px, white, with a shorter message. */
+.south-agent .south-field__control {
+	height: 45px;
+	background-color: var(--wp--preset--color--base);
+}
+
+.south-agent textarea.south-field__control {
+	height: 100px;
+}
+
+.south-agent .south-enquiry__grid {
+	gap: 15px;
+}
+
+.south-agent .south-enquiry__actions {
+	margin-top: 15px;
+}
+
+/* Plugin buttons take the theme's. */
+.wpcf7 input[type="submit"],
+.wpforms-submit,
+.gform_button,
+.fluentform .ff-btn-submit,
+.forminator-button-submit,
+.nf-form-content .submit-wrap input {
+	min-width: 170px;
+	height: 50px;
+	padding: 0 30px;
+	border: 0;
+	border-radius: 0;
+	background-color: var(--wp--preset--color--primary);
+	color: var(--wp--preset--color--on-primary);
+	font-family: inherit;
+	font-size: 14px;
+	font-weight: 600;
+	text-transform: uppercase;
+	cursor: pointer;
+}
+
+.wpcf7 input[type="submit"]:hover,
+.wpforms-submit:hover,
+.gform_button:hover,
+.fluentform .ff-btn-submit:hover,
+.forminator-button-submit:hover {
+	background-color: var(--wp--preset--color--dark);
+	color: var(--wp--preset--color--overlay);
+}
+
+/* The comment form's labels sit visually hidden like the design's. */
+.wp-block-post-comments-form .comment-form-comment label,
+.wp-block-post-comments-form .comment-form-author label,
+.wp-block-post-comments-form .comment-form-email label,
+.wp-block-post-comments-form .comment-form-url label {
+	display: block;
+	margin-bottom: 5px;
+	color: var(--wp--preset--color--contrast);
+	font-size: 12px;
+	text-transform: uppercase;
+}
+
+.wp-block-post-comments-form p {
+	margin: 0 0 10px;
+}
+
+.wp-block-post-comments-form .form-submit {
+	margin-top: 40px;
+}
