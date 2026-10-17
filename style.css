@@ -2553,6 +2553,13 @@ h1.south-post__title {
 	margin: 0;
 }
 
+/* The template keeps 40px between the description and the facts row (its last paragraph's
+   margin); the post-content wrapper swallows that margin, so the details block restores it.
+   Two classes: core's flow-layout reset on column children is printed after this sheet. */
+.wp-block-post-content + .south-details {
+	margin-top: 40px;
+}
+
 .south-facts {
 	display: flex;
 	flex-wrap: wrap;

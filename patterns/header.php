@@ -36,7 +36,7 @@ defined( 'ABSPATH' ) || exit;
 <!-- /wp:group -->
 
 <!-- wp:group {"className":"south-navbar__end","layout":{"type":"flex","flexWrap":"nowrap"}} -->
-<div class="wp-block-group south-navbar__end"><!-- wp:navigation {"overlayBackgroundColor":"dark","overlayTextColor":"overlay","className":"south-nav","layout":{"type":"flex","justifyContent":"right","flexWrap":"nowrap"}} /-->
+<div class="wp-block-group south-navbar__end"><!-- wp:navigation {"overlayBackgroundColor":"dark","overlayTextColor":"overlay","icon":"menu","className":"south-nav","layout":{"type":"flex","justifyContent":"right","flexWrap":"nowrap"}} /-->
 
 <!-- wp:search {"label":"Search","showLabel":false,"placeholder":"Search properties ...","buttonText":"Search","buttonPosition":"button-only","buttonUseIcon":true,"className":"south-header-search"} /-->
 
