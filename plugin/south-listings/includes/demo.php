@@ -247,13 +247,26 @@ function south_listings_import_demo() {
 		++$counts['homes'];
 	}
 
-	// Journal posts, written by the agents.
+	// Journal posts, attributed to whoever runs the import: the demo creates no user accounts.
+	// With nobody logged in (WP-CLI, a Playground blueprint) that is the first administrator,
+	// so the posts never end up with no author and no byline.
+	$author = get_current_user_id();
+	if ( ! $author ) {
+		$admins = get_users(
+			array(
+				'role'    => 'administrator',
+				'number'  => 1,
+				'orderby' => 'ID',
+				'fields'  => 'ID',
+			)
+		);
+		$author = $admins ? (int) $admins[0] : 0;
+	}
 	foreach ( $data['posts'] as $post ) {
 		if ( south_listings_demo_find( $post['slug'], 'post' ) ) {
 			continue;
 		}
-		$author = south_listings_demo_author( $post['author'], $made );
-		$id     = wp_insert_post(
+		$id = wp_insert_post(
 			array(
 				'post_type'     => 'post',
 				'post_status'   => 'publish',
@@ -261,7 +274,7 @@ function south_listings_import_demo() {
 				'post_name'     => $post['slug'],
 				'post_excerpt'  => $post['excerpt'],
 				'post_date'     => $post['date'],
-				'post_author'   => $author ? $author : get_current_user_id(),
+				'post_author'   => $author,
 				'post_category' => array( south_listings_demo_term( $post['category'], 'category' ) ),
 				'post_content'  => '',
 			)
@@ -328,39 +341,6 @@ function south_listings_import_demo() {
 }
 
 /**
- * The journal's author: a user with the agent's name, created once (role
- * Author, no password anyone knows) so the byline reads as in the template.
- *
- * @param string $name Display name.
- * @param array  $made The record of created items (by reference).
- * @return int User ID, or 0.
- */
-function south_listings_demo_author( $name, &$made ) {
-	$login = sanitize_user( strtolower( str_replace( ' ', '.', $name ) ), true );
-	$user  = get_user_by( 'login', $login );
-	if ( $user ) {
-		return (int) $user->ID;
-	}
-	if ( ! apply_filters( 'south_listings_demo_create_authors', true ) ) {
-		return 0;
-	}
-	$id = wp_insert_user(
-		array(
-			'user_login'   => $login,
-			'user_pass'    => wp_generate_password( 32 ),
-			'display_name' => $name,
-			'first_name'   => strtok( $name, ' ' ),
-			'role'         => 'author',
-		)
-	);
-	if ( is_wp_error( $id ) ) {
-		return 0;
-	}
-	$made['users'][] = (int) $id;
-	return (int) $id;
-}
-
-/**
  * "Properties" and a "Find a Home" menu in the South navigation, as the
  * template's header has them.
  */
@@ -421,14 +401,6 @@ function south_listings_remove_demo() {
 			}
 		}
 	}
-	if ( ! empty( $made['users'] ) ) {
-		require_once ABSPATH . 'wp-admin/includes/user.php';
-		foreach ( $made['users'] as $id ) {
-			if ( wp_delete_user( $id ) ) {
-				++$count;
-			}
-		}
-	}
 	delete_option( SOUTH_LISTINGS_DEMO_OPTION );
 	return $count;
 }
@@ -461,7 +433,7 @@ function south_listings_demo_screen() {
 	} elseif ( 'removed' === $done ) {
 		echo '<div class="notice notice-success"><p>' . esc_html__( 'The demo content has been removed.', 'south-listings' ) . '</p></div>';
 	}
-	echo '<p>' . esc_html__( 'Adds the South template\'s nine homes (six featured), three agents and three journal posts with their photographs, and adds Properties and Find a Home to the South menu. The journal posts are written by three new Author accounts named after the agents. Nothing you have made is changed, and running it again adds nothing new.', 'south-listings' ) . '</p>';
+	echo '<p>' . esc_html__( 'Adds the South template\'s nine homes (six featured), three agents and three journal posts with their photographs, and adds Properties and Find a Home to the South menu. Nothing you have made is changed, and running it again adds nothing new.', 'south-listings' ) . '</p>';
 	echo '<form method="post" action="' . esc_url( admin_url( 'admin-post.php' ) ) . '">';
 	wp_nonce_field( 'south_listings_demo' );
 	echo '<input type="hidden" name="action" value="south_listings_demo">';

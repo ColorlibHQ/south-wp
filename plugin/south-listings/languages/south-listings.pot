@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: South Listings\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-16 18:20+0300\n"
+"POT-Creation-Date: 2026-10-17 10:10+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -496,62 +496,61 @@ msgctxt "rent per month, after the price"
 msgid "/mo"
 msgstr ""
 
-#: plugin/south-listings/includes/demo.php:381
+#: plugin/south-listings/includes/demo.php:347
 msgid "Homes for sale"
 msgstr ""
 
-#: plugin/south-listings/includes/demo.php:382
+#: plugin/south-listings/includes/demo.php:348
 msgid "Homes to rent"
 msgstr ""
 
-#: plugin/south-listings/includes/demo.php:383
+#: plugin/south-listings/includes/demo.php:349
 msgid "Villas for sale"
 msgstr ""
 
-#: plugin/south-listings/includes/demo.php:384
+#: plugin/south-listings/includes/demo.php:350
 msgid "Apartments to rent"
 msgstr ""
 
-#: plugin/south-listings/includes/demo.php:385
+#: plugin/south-listings/includes/demo.php:351
 msgid "Furnished rentals"
 msgstr ""
 
-#: plugin/south-listings/includes/demo.php:393
+#: plugin/south-listings/includes/demo.php:359
 msgid "Find a Home"
 msgstr ""
 
-#: plugin/south-listings/includes/demo.php:442
-#: plugin/south-listings/includes/demo.php:443
-#: plugin/south-listings/includes/demo.php:458
+#: plugin/south-listings/includes/demo.php:400
+#: plugin/south-listings/includes/demo.php:401
+#: plugin/south-listings/includes/demo.php:416
 msgid "Demo content"
 msgstr ""
 
-#: plugin/south-listings/includes/demo.php:460
+#: plugin/south-listings/includes/demo.php:418
 msgid "The demo homes, agents and journal posts are in place."
 msgstr ""
 
-#: plugin/south-listings/includes/demo.php:462
+#: plugin/south-listings/includes/demo.php:420
 msgid "The demo content has been removed."
 msgstr ""
 
-#: plugin/south-listings/includes/demo.php:464
+#: plugin/south-listings/includes/demo.php:422
 msgid ""
 "Adds the South template's nine homes (six featured), three agents and three "
 "journal posts with their photographs, and adds Properties and Find a Home to "
-"the South menu. The journal posts are written by three new Author accounts "
-"named after the agents. Nothing you have made is changed, and running it "
-"again adds nothing new."
+"the South menu. Nothing you have made is changed, and running it again adds "
+"nothing new."
 msgstr ""
 
-#: plugin/south-listings/includes/demo.php:468
+#: plugin/south-listings/includes/demo.php:426
 msgid "Import demo content"
 msgstr ""
 
-#: plugin/south-listings/includes/demo.php:471
+#: plugin/south-listings/includes/demo.php:429
 msgid "Remove demo content"
 msgstr ""
 
-#: plugin/south-listings/includes/demo.php:481
+#: plugin/south-listings/includes/demo.php:439
 msgid "You are not allowed to do that."
 msgstr ""
 
