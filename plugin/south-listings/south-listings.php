@@ -3,7 +3,7 @@
  * Plugin Name: South Listings
  * Plugin URI: https://colorlib.com/wp/themes/south/
  * Description: Homes and agents for the South theme: a Property content type with real fields (price, sale or rent, beds, baths, garages, floor area, year built, address, features, room sizes, gallery and agent), property types, cities and status, a search that filters, sorts and pages with or without JavaScript, and one-click demo listings. Your listings stay in the database if you change theme.
- * Version: 1.0.0
+ * Version: 1.0.1
  * Requires at least: 6.6
  * Requires PHP: 7.4
  * Author: Colorlib
@@ -19,7 +19,7 @@
 
 defined( 'ABSPATH' ) || exit;
 
-const SOUTH_LISTINGS_VERSION = '1.0.0';
+const SOUTH_LISTINGS_VERSION = '1.0.1';
 
 /** Must match the host in the `Update URI` header, or core never calls the filter. */
 const SOUTH_LISTINGS_UPDATE_ENDPOINT = 'https://updates.colorlib.com/plugin/south-listings.json';

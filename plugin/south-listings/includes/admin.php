@@ -59,9 +59,11 @@ function south_listings_control( $key, $field, $value ) {
 	} elseif ( ! empty( $field['textarea'] ) ) {
 		$out .= '<textarea class="widefat" rows="5" id="' . esc_attr( $id ) . '" name="' . esc_attr( $key ) . '">' . esc_textarea( (string) $value ) . '</textarea>';
 	} else {
+		// Prices and coordinates (`number`) run to seven digits or a signed decimal, so they get
+		// the wide box; small-text cut 1890000 to "18900". Rooms, area and year stay small.
 		$type = in_array( $field['type'], array( 'number', 'integer' ), true ) ? 'number' : 'text';
 		$step = 'number' === $field['type'] ? ' step="any"' : '';
-		$out .= '<input type="' . esc_attr( $type ) . '"' . $step . ' class="' . ( 'text' === $type ? 'widefat' : 'small-text' ) . '" id="' . esc_attr( $id ) . '" name="' . esc_attr( $key ) . '" value="' . esc_attr( (string) $value ) . '">';
+		$out .= '<input type="' . esc_attr( $type ) . '"' . $step . ' class="' . ( 'text' === $type ? 'widefat' : ( 'number' === $field['type'] ? 'regular-text' : 'small-text' ) ) . '" id="' . esc_attr( $id ) . '" name="' . esc_attr( $key ) . '" value="' . esc_attr( (string) $value ) . '">';
 	}
 
 	if ( ! empty( $field['hint'] ) ) {
